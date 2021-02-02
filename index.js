@@ -12,10 +12,9 @@ const key = crypto.scryptSync('happy', 'salt', 24);
 // or use crypto.createRandomByte();
 const iv = Buffer.alloc(16, 0);
 
+//encrypt using cipher object as streams
 
 const cipher = crypto.createCipheriv(algorithm, key, iv);
-
-//encryt data using streams
 
 let encrytedData = '';
 
@@ -53,4 +52,5 @@ decipher.on('end', ()=>{
 });
 
 decipher.write('4d0b637a10d2c8a3f58320864c1c55ec', 'hex');
+
 decipher.end();
